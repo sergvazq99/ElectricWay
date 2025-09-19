@@ -10,11 +10,11 @@
     "author": "Alumno EcoMarket",
     "license": "MIT",
     "dependencies": {
-        "express": "^4.18.2",
-        "ejs": "^3.1.9",
-        "morgan": "^1.10.0",
         "cookie-parser": "^1.4.6",
-        "express-session": "^1.17.3"
+        "ejs": "^3.1.9",
+        "express": "^4.21.2",
+        "express-session": "^1.17.3",
+        "morgan": "^1.10.0"
     },
     "devDependencies": {
         "nodemon": "^3.0.3"
