@@ -1,0 +1,57 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+h1 {
+    color: black;
+}
+a {
+    text-decoration: none;
+    color: aliceblue;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: rgb(249, 104, 0);
+}
+header img{
+    height: 50px;
+    width: 50px;
+}
+.fondo_imagen{
+    background-image: url('/images/fondo.jpg');
+    background-size: cover; 
+}
+.btn.btn-primary{
+    border-radius: 50px;
+}
+nav{
+    
+    justify-content: space-between;
+    padding: 0.2rem;
+    background-color: black;
+}
+ul{
+    margin-left: 5rem;
+    color:aliceblue;
+}
+ul a{
+    margin: 5rem;
+
+    color:aliceblue;
+}
+.images{
+    display: flex;
+}
+.info{
+   margin-right: auto;
+}
+footer{
+    
+    justify-items: center;
+    padding: 1rem;
+    background-color: rgb(249, 104, 0);
+}
