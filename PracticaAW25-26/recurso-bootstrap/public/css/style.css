@@ -32,18 +32,22 @@ header img{
     background-color: rgb(5, 3, 3);
     border-color:rgb(255, 85, 0);
 }
-/*.fondo_imagen{
-    background-image: url('/images/fondo.jpg');
-    background-size: cover; 
-}*/
+.btn.btn-primary.w-100.mb-2{
+    background-color: rgb(255, 85, 0);
+    border-color:rgb(255, 85, 0);
+    color:black;
+}
+.btn.btn-primary.w-100{
+    background-color: rgb(5, 3, 3);
+    border-color:rgb(255, 85, 0);
+}
 .btn.btn-primary{
     
     border-radius: 50px;
 }
 nav{
-    
     justify-content: space-between;
-    padding: 0.2rem;
+    padding: 0.5rem;
     background-color: black;
 }
 ul{
@@ -58,17 +62,25 @@ ul a{
 .images{
     display: flex;
 }
-.fstsection{
+#myModal{
+    margin-left: 30%;
+    margin-top: 15%;
     text-align: center;
-    margin: auto;
     border-radius: 20px;
     border-width: 2px;
-    padding: 1rem;
+    
+    height: auto;
     width: 40%;
-    
     border:1px solid;
-    
     background-color: rgba(208, 208, 208, 0.5);
+}
+
+.modal-header h4{
+    margin-left: auto;
+}
+.btns{
+    display: flex;
+    align-items: center;
 }
 .panelbuttons{
     display: flex;
@@ -86,3 +98,4 @@ footer{
     padding: 1rem;
     background-color: rgb(255, 255, 255);
 }
+

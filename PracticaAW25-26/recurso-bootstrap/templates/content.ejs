@@ -6,20 +6,34 @@
     <title>Document</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <script src="/css/bootstrap.bundle.min.js"></script>
+    
+    <script src="/js/bootstrap.min.js"></script>
 </head>
-<body class="fondo_imagen">
+<body>
     <h2 style="text-align: center; color:black">Bienvenido a Electric Way, los mejores coches eléctricos del mercado</h2>
-    <div class="fstsection">
-        <h3>Te damos la bienvenida</h3>
-        <p>Para obtener una mayor experiencia de usuario y hacer tus pedidos 
-            inicia sesión y si no tiene cuenta regístrate de forma gratuita.
-        </p>
-        <div class="panelbuttons">
-            <button class="btn btn-primary" id="login_button">Iniciar sesión</button>
-            <button class="btn btn-primary" id="reg_button">Registrarse</button>
+    
+    
+        <div class="modal" id="myModal" tabindex="-1">
+            <div class="modal-header">
+                <h4 class="modal-title">Te damos la bienvenida</h4>
+                <button type="button" class="btn-close" id="cerrarModal" data-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Inicia sesión o regístrate para obtener una mejor experiencia.</p>
+            </div>        
+            <div class="modal-footer">
+                <button class="btn btn-primary w-100 mb-2" >Iniciar sesión</button>
+                <button class="btn btn-primary w-100">Registrarse</button>
+            </div>   
         </div>
-        
-    </div>
+    
+    <script>
+        window.onload=function(){document.getElementById("myModal").style.display="block";};
+
+        document.getElementById("cerrarModal").onclick = function () {
+            document.getElementById("myModal").style.display = "none";
+        };
+    </script>
+    <script src="/js/jquery.min.js"></script>
 </body>
 </html>
