@@ -17,9 +17,29 @@ header{
     padding: 1rem;
     background-color: rgb(0, 0, 0);
 }
+.bienvenida{
+    padding: 1rem;
+}
+.bienvenida h2{
+    text-align: center;
+    color:black;
+}
+.bienvenida p,.bienvenida li{
+    text-align: center;
+    font-size: 1.3em;
+    font-style: italic;
+    margin-top: 10px;
+    color:rgb(0, 0, 0);
+}
+.caracteristicas{
+    display: flex;
+    justify-content: center;
+    gap:1rem;
+    text-align: center;
+}
 header img{
-    height: 50px;
-    width: 50px;
+    height: 5%;
+    width: 5%;
 }
 #login_button{
     height: 40px;
@@ -54,9 +74,8 @@ ul{
     margin-left: 5rem;
     color:aliceblue;
 }
-ul a{
+.justify-content-center a{
     margin: 5rem;
-
     color:aliceblue;
 }
 .images{
@@ -68,7 +87,6 @@ ul a{
     text-align: center;
     border-radius: 20px;
     border-width: 2px;
-    
     height: auto;
     width: 40%;
     border:1px solid;
@@ -91,11 +109,107 @@ ul a{
 }
 .info{
    margin-right: auto;
+   padding: 1.5rem;
 }
 footer{
-    
     justify-items: center;
+    color:aliceblue;
     padding: 1rem;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+}
+.info ul{
+    margin: auto;
+    margin-top: auto;
+}
+.login,.register,.reserve,.vehicle,.concessionaire{
+    margin: auto;
+    margin-top: 2%;
+    border-radius: 20px;
+    border-width: 2px;
+    height: auto;
+    border:1px solid;
+    width: 30%;
+    padding: 3rem;
+    border-color: rgb(255, 85, 0);
+}
+.register label,.login label,.reserve label,.vehicle label,.concessionaire label{
+    color:black;
+}
+.register input,.register select,.login input,.reserve input,.vehicle input,.vehicle select,.concessionaire input{
+    border-color: black;
 }
 
+.login h2,.register h2,.reserve h2,.vehicle h2,.concessionaire h2{
+    text-align: center;
+}
+.login .session_button,.register .session_button,.reserve .session_button,.vehicle .session_button,.concessionaire .session_button{
+    text-align: center;
+    margin: auto;
+}
+.session_button button{
+    background-color: white;
+    border-color: rgb(255, 85, 0);
+    color:black;
+}
+.session_button{
+    padding: 1rem;
+    margin: auto;
+}
+.session_button button:hover{
+    background-color: rgb(255, 85, 0);
+    border-color: rgb(255, 85, 0);
+    color:black;
+}
+.container{
+    padding: 2rem;
+}
+.row{
+    margin-top: 10px;
+}
+.card-img-top{
+    padding: 2rem;
+    max-height: 200px;
+    width: auto;
+}
+.card{
+    margin-top: 1.5rem;
+    border-width: 2px;
+}
+.card:hover{
+    border-width: 3px;
+    transition: transform 0.2s;
+    transform: scale(1.05);
+}
+
+.clickable-img {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+#imgModal{
+    position: fixed;
+    margin-left: 30%;
+    margin-top: 20%;
+    width:50%;
+}
+#imgModalContent{
+    padding: 2rem;
+}
+.close {
+    
+    color: #000000;
+    font-size: 40px;
+    cursor:pointer;
+}
+.close:hover {
+    color: #ffffff;
+}
+.row .col .card{
+    border-radius: 0px;
+    border-color: rgb(255, 85, 0);
+    
+}
+.blurred {
+  filter: blur(15px);
+  transition: filter 0.3s ease;
+  pointer-events: none;
+}
