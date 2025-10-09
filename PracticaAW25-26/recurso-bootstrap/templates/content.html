@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,166 +8,401 @@
     <link rel="stylesheet" href="../public/css/style.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="../public/images/logo.png" type="image/x-icon">
     <script src="/js/bootstrap.min.js"></script>
 </head>
+
 <body>
-    <header>
-        <img src="../public/images/logo.png" alt="logo">
-        <h1 style="color:rgb(255, 85, 0)">ElectricWay</h1>
-        <div class="btns">
-            <button id="login_button" class="btn btn-primary">Iniciar sesión</button>
-            <button id="reg_button" class="btn btn-primary">Regístrate</button>
+    <div id="content">
+        <header>
+            <img src="../public/images/logo.png" alt="logo">
+            <h1 style="color:rgb(255, 85, 0)">ElectricWay</h1>
+            <div class="btns">
+                <button id="login_button" class="btn btn-primary">Iniciar sesión</button>
+                <button id="reg_button" class="btn btn-primary">Regístrate</button>
+            </div>
+
+        </header>
+
+        <nav>
+
+            <ul class="nav justify-content-center">
+                <li class="nav-item"><a>Inicio</a></li>
+                <li class="nav-item"><a>Vehículos</a></li>
+                <li class="nav-item"><a>Reservar</a></li>
+                <li class="nav-item"><a>Mi perfil</a></li><!--después del login-->
+                <li class="nav-item"><a>Cerrar sesión</a></li><!--después del login-->
+            </ul>
+
+            <!--Admin:
+                <ul>
+                <a>Inicio</a>
+                <a>Gestionar vehículos</a>
+                <a>Gestionar concesionarios</a>
+                <a>Gestionar usuarios</a>
+                <a>Estadísticas</a>
+                <a>Mi perfil</a> 
+                <a>Cerrar sesión</a> 
+            </ul>
+            -->
+
+            <!--Empleado:
+                <ul>
+                <a>Inicio</a>
+                <a>Mis reservas</a>
+                <a>Vehículos de mi base</a>
+                <a>Mi perfil</a> 
+                <a>Cerrar sesión</a> 
+            </ul>
+            -->
+        </nav>
+        <div class="bienvenida">
+            <h2>Bienvenido a Electric Way, la mejor plataforma de movilidad sostenible.</h2>
+            <p style="color:rgb(214, 64, 0)">
+                Tu viaje hacia un futuro más limpio comienza aquí.
+            </p>
+            <div class="caracteristicas">
+                <p>Sostenible <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-recycle" viewBox="0 0 16 16">
+                        <path
+                            d="M9.302 1.256a1.5 1.5 0 0 0-2.604 0l-1.704 2.98a.5.5 0 0 0 .869.497l1.703-2.981a.5.5 0 0 1 .868 0l2.54 4.444-1.256-.337a.5.5 0 1 0-.26.966l2.415.647a.5.5 0 0 0 .613-.353l.647-2.415a.5.5 0 1 0-.966-.259l-.333 1.242zM2.973 7.773l-1.255.337a.5.5 0 1 1-.26-.966l2.416-.647a.5.5 0 0 1 .612.353l.647 2.415a.5.5 0 0 1-.966.259l-.333-1.242-2.545 4.454a.5.5 0 0 0 .434.748H5a.5.5 0 0 1 0 1H1.723A1.5 1.5 0 0 1 .421 12.24zm10.89 1.463a.5.5 0 1 0-.868.496l1.716 3.004a.5.5 0 0 1-.434.748h-5.57l.647-.646a.5.5 0 1 0-.708-.707l-1.5 1.5a.5.5 0 0 0 0 .707l1.5 1.5a.5.5 0 1 0 .708-.707l-.647-.647h5.57a1.5 1.5 0 0 0 1.302-2.244z" />
+                    </svg></p>
+                <p>Ecológico <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-leaf" viewBox="0 0 16 16">
+                        <path
+                            d="M1.4 1.7c.216.289.65.84 1.725 1.274 1.093.44 2.884.774 5.834.528l.37-.023c1.823-.06 3.117.598 3.956 1.579C14.16 6.082 14.5 7.41 14.5 8.5c0 .58-.032 1.285-.229 1.997q.198.248.382.54c.756 1.2 1.19 2.563 1.348 3.966a1 1 0 0 1-1.98.198c-.13-.97-.397-1.913-.868-2.77C12.173 13.386 10.565 14 8 14c-1.854 0-3.32-.544-4.45-1.435-1.125-.887-1.89-2.095-2.391-3.383C.16 6.62.16 3.646.509 1.902L.73.806zm-.05 1.39c-.146 1.609-.008 3.809.74 5.728.457 1.17 1.13 2.213 2.079 2.961.942.744 2.185 1.22 3.83 1.221 2.588 0 3.91-.66 4.609-1.445-1.789-2.46-4.121-1.213-6.342-2.68-.74-.488-1.735-1.323-1.844-2.308-.023-.214.237-.274.38-.112 1.4 1.6 3.573 1.757 5.59 2.045 1.227.215 2.21.526 3.033 1.158.058-.39.075-.782.075-1.158 0-.91-.288-1.988-.975-2.792-.626-.732-1.622-1.281-3.167-1.229l-.316.02c-3.05.253-5.01-.08-6.291-.598a5.3 5.3 0 0 1-1.4-.811" />
+                    </svg></p>
+                <p>Innovador <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-star" viewBox="0 0 16 16">
+                        <path
+                            d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z" />
+                    </svg></p>
+            </div>
+            <div class="video">
+                <video width="1040" height="460" src="../public/recurso-videos/MG4_video-11.mp4" autoplay muted loop></video>
+            </div>
         </div>
         
-    </header>
-    
-    <nav>
-        
-        <ul class="nav justify-content-center">
-            <li class="nav-item"><a>Inicio</a></li>
-            <li class="nav-item"><a>Vehículos</a></li>
-            <li class="nav-item"><a>Reservar</a></li>
-            <li class="nav-item"><a>Mi perfil</a></li><!--después del login-->
-            <li class="nav-item"><a>Cerrar sesión</a></li><!--después del login-->
-        </ul>
-
-        <!--Admin:
-            <ul>
-            <a>Inicio</a>
-            <a>Gestionar vehículos</a>
-            <a>Gestionar concesionarios</a>
-            <a>Gestionar usuarios</a>
-            <a>Estadísticas</a>
-            <a>Mi perfil</a> 
-            <a>Cerrar sesión</a> 
-        </ul>
-        -->
-
-        <!--Empleado:
-            <ul>
-            <a>Inicio</a>
-            <a>Mis reservas</a>
-            <a>Vehículos de mi base</a>
-            <a>Mi perfil</a> 
-            <a>Cerrar sesión</a> 
-        </ul>
-        -->
-    </nav>
-    <div class="bienvenida">
-        <h2>Bienvenido a Electric Way, la mejor plataforma de movilidad sostenible.</h2>
-        <p style="color:rgb(214, 64, 0)">
-            Tu viaje hacia un futuro más limpio comienza aquí.
-        </p>
-        <div class="caracteristicas">
-            <p>Sostenible <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-recycle" viewBox="0 0 16 16">
-            <path d="M9.302 1.256a1.5 1.5 0 0 0-2.604 0l-1.704 2.98a.5.5 0 0 0 .869.497l1.703-2.981a.5.5 0 0 1 .868 0l2.54 4.444-1.256-.337a.5.5 0 1 0-.26.966l2.415.647a.5.5 0 0 0 .613-.353l.647-2.415a.5.5 0 1 0-.966-.259l-.333 1.242zM2.973 7.773l-1.255.337a.5.5 0 1 1-.26-.966l2.416-.647a.5.5 0 0 1 .612.353l.647 2.415a.5.5 0 0 1-.966.259l-.333-1.242-2.545 4.454a.5.5 0 0 0 .434.748H5a.5.5 0 0 1 0 1H1.723A1.5 1.5 0 0 1 .421 12.24zm10.89 1.463a.5.5 0 1 0-.868.496l1.716 3.004a.5.5 0 0 1-.434.748h-5.57l.647-.646a.5.5 0 1 0-.708-.707l-1.5 1.5a.5.5 0 0 0 0 .707l1.5 1.5a.5.5 0 1 0 .708-.707l-.647-.647h5.57a1.5 1.5 0 0 0 1.302-2.244z"/>
-            </svg></p>
-            <p>Ecológico <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-leaf" viewBox="0 0 16 16">
-            <path d="M1.4 1.7c.216.289.65.84 1.725 1.274 1.093.44 2.884.774 5.834.528l.37-.023c1.823-.06 3.117.598 3.956 1.579C14.16 6.082 14.5 7.41 14.5 8.5c0 .58-.032 1.285-.229 1.997q.198.248.382.54c.756 1.2 1.19 2.563 1.348 3.966a1 1 0 0 1-1.98.198c-.13-.97-.397-1.913-.868-2.77C12.173 13.386 10.565 14 8 14c-1.854 0-3.32-.544-4.45-1.435-1.125-.887-1.89-2.095-2.391-3.383C.16 6.62.16 3.646.509 1.902L.73.806zm-.05 1.39c-.146 1.609-.008 3.809.74 5.728.457 1.17 1.13 2.213 2.079 2.961.942.744 2.185 1.22 3.83 1.221 2.588 0 3.91-.66 4.609-1.445-1.789-2.46-4.121-1.213-6.342-2.68-.74-.488-1.735-1.323-1.844-2.308-.023-.214.237-.274.38-.112 1.4 1.6 3.573 1.757 5.59 2.045 1.227.215 2.21.526 3.033 1.158.058-.39.075-.782.075-1.158 0-.91-.288-1.988-.975-2.792-.626-.732-1.622-1.281-3.167-1.229l-.316.02c-3.05.253-5.01-.08-6.291-.598a5.3 5.3 0 0 1-1.4-.811"/>
-            </svg></p>
-            <p>Innovador <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
-            <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
-            </svg></p>
-        </div>
-            
-    </div>
-
-    <div class="coches">
-        <div class="container" id="main-content">
-            <h2>La forma más rápida de conseguir tu vehículo</h2><h2>100% eléctrico</h2><hr>
-            <p style="color:rgb(214, 64, 0)">Si eres de los que no puede esperar cuando quiere algo, tenemos el atajo perfecto para ti.<br>
-                Tu vehículo ideal te está esperando en uno de nuestros puntos de venta.
-            </p><hr>
-            <h2>Consulta nuestro catálogo</h2>
-            <div class="row">
-                <div class="col">
-                    <div class="card">
-                        <img src="../public/recurso-imagenes/recurso-imagenes/vehiculos/byd_seal1.png" class="card-img-top clickable-img" alt="byd_seal1">
+        <section id="vehiculos">
+            <div class="container" id="main-content">
+                <div class="publicidad">
+                    <h2>La forma más rápida de conseguir tu vehículo</h2>
+                    <h2>100% eléctrico</h2>
+                    <hr>
+                    <p style="color:rgb(214, 64, 0)">Si eres de los que no puede esperar cuando quiere algo, tenemos el atajo
+                        perfecto para ti.<br>
+                        Tu vehículo ideal te está esperando en uno de nuestros puntos de venta.
+                    </p>
+                    <hr>
+                    <h2>Consulta nuestro catálogo</h2>
+                </div>
+                
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <img src="../public/recurso-imagenes/vehiculos/byd_seal1.png"
+                                class="card-img-top clickable-img" alt="byd_seal1">
                             <div class="card-body">
                                 <h5 class="card-title">Byd Seal 1</h5>
-                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in
+                                    to additional content. This content is a little bit longer.</p>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Matrícula</th>
+                                            <th scope="col">Marca</th>
+                                            <th scope="col">Autonomía</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>67891FYS</td>
+                                            <td>Renault</td>
+                                            <td>500 km</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img src="../public/recurso-imagenes/vehiculos/byd_seal2.png"
+                                class="card-img-top clickable-img" alt="byd_seal2">
+                            <div class="card-body">
+                                <h5 class="card-title">Byd Seal 2</h5>
+                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in
+                                    to additional content. This content is a little bit longer.</p>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Matrícula</th>
+                                            <th scope="col">Marca</th>
+                                            <th scope="col">Autonomía</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>67891FYS</td>
+                                            <td>Renault</td>
+                                            <td>500 km</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img src="../public/recurso-imagenes/vehiculos/byd_seal3.png"
+                                class="card-img-top clickable-img" alt="byd_seal3">
+                            <div class="card-body">
+                                <h5 class="card-title">Byd Seal 3</h5>
+                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in
+                                    to additional content. This content is a little bit longer.
+                                </p>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Matrícula</th>
+                                            <th scope="col">Marca</th>
+                                            <th scope="col">Autonomía</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>67891FYS</td>
+                                            <td>Renault</td>
+                                            <td>500 km</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card">
-                    <img src="../public/recurso-imagenes/recurso-imagenes/vehiculos/byd_seal2.png" class="card-img-top" alt="byd_seal2">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <img src="../public/recurso-imagenes/vehiculos/tesla1.png"
+                                class="card-img-top clickable-img" alt="tesla1">
+                            <div class="card-body">
+                                <h5 class="card-title">Tesla 1</h5>
+                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in
+                                    to additional content. This content is a little bit longer.
+                                </p>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Matrícula</th>
+                                            <th scope="col">Marca</th>
+                                            <th scope="col">Autonomía</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>67891FYS</td>
+                                            <td>Renault</td>
+                                            <td>500 km</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
+                    <div class="col">
+                        <div class="card">
+                            <img src="../public/recurso-imagenes/vehiculos/byd_seal1.png"
+                                class="card-img-top clickable-img" alt="byd_seal1">
+                            <div class="card-body">
+                                <h5 class="card-title">Byd Seal 1</h5>
+                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in
+                                    to additional content. This content is a little bit longer.
+                                </p>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Matrícula</th>
+                                            <th scope="col">Marca</th>
+                                            <th scope="col">Autonomía</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>67891FYS</td>
+                                            <td>Renault</td>
+                                            <td>500 km</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img src="../public/recurso-imagenes/vehiculos/byd_seal2.png"
+                                class="card-img-top clickable-img" alt="byd_seal2">
+                            <div class="card-body">
+                                <h5 class="card-title">Byd Seal 2</h5>
+                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in
+                                    to additional content. This content is a little bit longer.
+                                </p>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Matrícula</th>
+                                            <th scope="col">Marca</th>
+                                            <th scope="col">Autonomía</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>67891FYS</td>
+                                            <td>Renault</td>
+                                            <td>500 km</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card">
-                    <img src="../public/recurso-imagenes/recurso-imagenes/vehiculos/byd_seal3.png" class="card-img-top" alt="byd_seal3">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <img src="../public/recurso-imagenes/vehiculos/byd_seal3.png"
+                                class="card-img-top clickable-img" alt="byd_seal3">
+                            <div class="card-body">
+                                <h5 class="card-title">Byd Seal 3</h5>
+                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in
+                                    to additional content. This content is a little bit longer.
+                                </p>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Matrícula</th>
+                                            <th scope="col">Marca</th>
+                                            <th scope="col">Autonomía</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>67891FYS</td>
+                                            <td>Renault</td>
+                                            <td>500 km</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
+                    <div class="col">
+                        <div class="card">
+                            <img src="../public/recurso-imagenes/vehiculos/tesla1.png"
+                                class="card-img-top clickable-img" alt="tesla1">
+                            <div class="card-body">
+                                <h5 class="card-title">Tesla 1</h5>
+                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in
+                                    to additional content. This content is a little bit longer.
+                                </p>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Matrícula</th>
+                                            <th scope="col">Marca</th>
+                                            <th scope="col">Autonomía</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>67891FYS</td>
+                                            <td>Renault</td>
+                                            <td>500 km</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img src="../public/recurso-imagenes/vehiculos/tesla1.png"
+                                class="card-img-top clickable-img" alt="tesla1">
+                            <div class="card-body">
+                                <h5 class="card-title">Tesla 1</h5>
+                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in
+                                    to additional content. This content is a little bit longer.
+                                </p>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Matrícula</th>
+                                            <th scope="col">Marca</th>
+                                            <th scope="col">Autonomía</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>67891FYS</td>
+                                            <td>Renault</td>
+                                            <td>500 km</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
-            <div class="row">
-                <div class="col">
-                    <div class="card">
-                    <img src="../public/recurso-imagenes/recurso-imagenes/vehiculos/tesla1.png" class="card-img-top" alt="tesla1">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                    <img src="../public/recurso-imagenes/recurso-imagenes/vehiculos/byd_seal1.png" class="card-img-top" alt="byd_seal1">
-                    <div class="card-body">
-                        <h5 class="card-title">Byd Seal 1</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                    <img src="../public/recurso-imagenes/recurso-imagenes/vehiculos/byd_seal2.png" class="card-img-top" alt="byd_seal2">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    </div>
-                </div>
+        </section>
+        <footer>
+            <div class="info">
+                <ul style="list-style: none; padding: 0;">
+                    <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-telephone" viewBox="0 0 16 16">
+                            <path
+                                d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
+                        </svg> Teléfono: 91 358 13 65</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-envelope-at" viewBox="0 0 16 16">
+                            <path
+                                d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2zm3.708 6.208L1 11.105V5.383zM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2z" />
+                            <path
+                                d="M14.247 14.269c1.01 0 1.587-.857 1.587-2.025v-.21C15.834 10.43 14.64 9 12.52 9h-.035C10.42 9 9 10.36 9 12.432v.214C9 14.82 10.438 16 12.358 16h.044c.594 0 1.018-.074 1.237-.175v-.73c-.245.11-.673.18-1.18.18h-.044c-1.334 0-2.571-.788-2.571-2.655v-.157c0-1.657 1.058-2.724 2.64-2.724h.04c1.535 0 2.484 1.05 2.484 2.326v.118c0 .975-.324 1.39-.639 1.39-.232 0-.41-.148-.41-.42v-2.19h-.906v.569h-.03c-.084-.298-.368-.63-.954-.63-.778 0-1.259.555-1.259 1.4v.528c0 .892.49 1.434 1.26 1.434.471 0 .896-.227 1.014-.643h.043c.118.42.617.648 1.12.648m-2.453-1.588v-.227c0-.546.227-.791.573-.791.297 0 .572.192.572.708v.367c0 .573-.253.744-.564.744-.354 0-.581-.215-.581-.8Z" />
+                        </svg> email: electricway@ucm.es</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-instagram" viewBox="0 0 16 16">
+                            <path
+                                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+                        </svg> Síguenos en redes sociales</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-person-workspace" viewBox="0 0 16 16">
+                            <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
+                            <path
+                                d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.4 5.4 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2z" />
+                        </svg> Trabaja para nosotros</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-link-45deg" viewBox="0 0 16 16">
+                            <path
+                                d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z" />
+                            <path
+                                d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z" />
+                        </svg><a style="color:aliceblue" href="https://www.ucm.es/"> Universidad Complutense de Madrid</a>
+                    </li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-door-closed" viewBox="0 0 16 16">
+                            <path
+                                d="M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3zm1 13h8V2H4z" />
+                            <path d="M9 9a1 1 0 1 0 2 0 1 1 0 0 0-2 0" />
+                        </svg><a style="color:aliceblue" href="/logout"> Cerrar sesión</a></li>
+                </ul>
+
             </div>
-            <div class="row">
-                <div class="col">
-                    <div class="card">
-                    <img src="../public/recurso-imagenes/recurso-imagenes/vehiculos/byd_seal3.png" class="card-img-top" alt="byd_seal3">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                    <img src="../public/recurso-imagenes/recurso-imagenes/vehiculos/tesla1.png" class="card-img-top" alt="tesla1">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                    <img src="../public/recurso-imagenes/recurso-imagenes/vehiculos/tesla1.png" class="card-img-top" alt="tesla1">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
+
+
+            <h6>© 2025 Todos los derechos reservados.</h6>
+        </footer>
     </div>
 
     <!--Modal para el login-->
@@ -177,56 +413,24 @@
         </div>
         <div class="modal-body">
             <p>Inicia sesión o regístrate para obtener una mejor experiencia.</p>
-        </div>        
+        </div>
         <div class="modal-footer">
-            <button class="btn btn-primary w-100 mb-2" >Iniciar sesión</button>
+            <button class="btn btn-primary w-100 mb-2">Iniciar sesión</button>
             <button class="btn btn-primary w-100">Registrarse</button>
-        </div>   
+        </div>
     </div>
 
     <!--Modal para las imágenes de los cohces-->
     <div class="modal" id="imgModal">
         <span class="close">&times;</span>
-        <img class="modal-content" id="imgModalContent">
-        
+        <img src="../public/recurso-imagenes/vehiculos/x.png" class="modal-content" id="imgModalContent" alt="imagen_ampliada">
     </div>
     <script src="../data/modal-imagenes.js"></script>
+
     
-    <footer>
-        <div class="info">
-            <ul style="list-style: none; padding: 0;">
-                    <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
-                    <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
-                </svg> Teléfono: 91 358 13 65</li>
-                <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-at" viewBox="0 0 16 16">
-                    <path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2zm3.708 6.208L1 11.105V5.383zM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2z"/>
-                    <path d="M14.247 14.269c1.01 0 1.587-.857 1.587-2.025v-.21C15.834 10.43 14.64 9 12.52 9h-.035C10.42 9 9 10.36 9 12.432v.214C9 14.82 10.438 16 12.358 16h.044c.594 0 1.018-.074 1.237-.175v-.73c-.245.11-.673.18-1.18.18h-.044c-1.334 0-2.571-.788-2.571-2.655v-.157c0-1.657 1.058-2.724 2.64-2.724h.04c1.535 0 2.484 1.05 2.484 2.326v.118c0 .975-.324 1.39-.639 1.39-.232 0-.41-.148-.41-.42v-2.19h-.906v.569h-.03c-.084-.298-.368-.63-.954-.63-.778 0-1.259.555-1.259 1.4v.528c0 .892.49 1.434 1.26 1.434.471 0 .896-.227 1.014-.643h.043c.118.42.617.648 1.12.648m-2.453-1.588v-.227c0-.546.227-.791.573-.791.297 0 .572.192.572.708v.367c0 .573-.253.744-.564.744-.354 0-.581-.215-.581-.8Z"/>
-                </svg > email: electricway@ucm.es</li>
-                <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
-                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
-                </svg> Síguenos en redes sociales</li>
-                <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-workspace" viewBox="0 0 16 16">
-                    <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
-                    <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.4 5.4 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2z"/>
-                </svg> Trabaja para nosotros</li>
-                <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
-                    <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
-                    <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
-                </svg><a style="color:aliceblue" href="https://www.ucm.es/" > Universidad Complutense de Madrid</a></li>
-                <li><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-closed" viewBox="0 0 16 16">
-                    <path d="M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3zm1 13h8V2H4z"/>
-                    <path d="M9 9a1 1 0 1 0 2 0 1 1 0 0 0-2 0"/>
-                </svg><a style="color:aliceblue" href="/logout"> Cerrar sesión</a></li>
-            </ul>
-            
-        </div>
-        
-        
-        <h6>© 2025 Todos los derechos reservados.</h6>
-    </footer>
 
     <script>
-        window.onload=function(){document.getElementById("myModal").style.display="block";};
+        window.onload = function () { document.getElementById("myModal").style.display = "block"; };
 
         document.getElementById("cerrarModal").onclick = function () {
             document.getElementById("myModal").style.display = "none";
@@ -235,7 +439,8 @@
         window.onload = function () {
             const modal = document.getElementById("myModal");
             const cerrarBtn = document.getElementById("cerrarModal");
-            const mainContent = document.getElementById("main-content");
+            const mainContent = document.getElementById("content");
+            
 
             // Mostrar modal automáticamente
             modal.style.display = "block";
@@ -243,19 +448,20 @@
 
             // Cerrar modal y quitar desenfoque
             cerrarBtn.onclick = function () {
-            modal.style.display = "none";
-            mainContent.classList.remove("blurred");
+                modal.style.display = "none";
+                mainContent.classList.remove("blurred");
             }
 
             // También cerrar si se hace clic fuera del modal (opcional)
             window.onclick = function (event) {
-            if (event.target === modal) {
-                modal.style.display = "none";
-                mainContent.classList.remove("blurred");
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                    mainContent.classList.remove("blurred");
+                }
             }
-        }
-    };
+        };
     </script>
     <script src="/js/jquery.min.js"></script>
 </body>
+
 </html>
