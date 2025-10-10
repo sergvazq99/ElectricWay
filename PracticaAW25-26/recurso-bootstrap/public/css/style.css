@@ -168,6 +168,12 @@ footer{
 .container{
     padding: 2rem;
 }
+.concesionarios,.usuarios{
+    padding:2rem;
+}
+.concesionarios h2,.usuarios h2{
+    text-align: center;
+}
 .row{
     margin-top: 10px;
 }
@@ -180,6 +186,55 @@ footer{
 .card{
     margin-top: 1.5rem;
     border-width: 2px;
+}
+.card.w-75.mb-3{
+    padding:1rem;
+    /*box-shadow: 0 0 10px rgb(255, 85, 0), 0 0 10px rgb(255, 85, 0);*/
+    border-color: rgb(255, 85, 0);
+    background-color: rgb(255, 255, 255);
+}
+.card.w-75.mb-3:hover{
+    transition: transform 0.2s;
+    transform: scale(1.02);
+}
+.banner_user{
+    display: flex;
+    align-items: center;
+    gap:1.5%;
+}
+.banner_user img{
+    border-radius: 50%;
+    height: 4.5%;
+    width: 4.5%;
+}
+.card-text,.card-title{
+    color:black;
+}
+.datos_user{
+    display: flex;
+    gap:2%;
+    margin-top: 10px;
+}
+.datos_conc{
+    display: flex;
+    gap:2%;
+}
+#eliminar{
+    border-radius: 20px;
+    background-color: white;
+    border-color: rgb(255, 85, 0);
+    background-color: rgb(255, 85, 0);
+    color:black;
+}
+#editar{
+    border-radius: 20px;
+    background-color: black;
+    border-color: rgb(255, 85, 0);
+    color:white;
+}
+#eliminar:hover,#editar:hover{
+    transition: transform 0.2s;
+    transform: scale(1.1);
 }
 .card:hover{
     border-width: 3px;
@@ -214,6 +269,14 @@ footer{
     border-color: rgb(255, 85, 0);
     
 }
+#pagination a{
+    border-color: rgb(255, 85, 0);
+    color:black;
+}
+.page-item.active .page-link {
+  background-color: rgb(255, 85, 0);
+}
+
 .blurred {
   filter: blur(15px);
   transition: filter 0.3s ease;
