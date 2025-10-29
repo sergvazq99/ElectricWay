@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis reservas</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="icon" href="/images/logo.png" type="image/x-icon">
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <%-include("header")%>
+    <%-include("nav")%>
+    <section id="vehiculos">
+        <h2>Mis reservas</h2>
+            <div class="container" id="main-content">
+                <%r.forEach(reserva=>{%>
+                    <div class="row" id="mis_vehiculos">
+                        <div class="col">
+                            <div class="card">
+                                <img src="/recurso-imagenes/vehiculos/<%=reserva.foto%>"
+                                class="card-img-top clickable-img" alt="<%=reserva.nombre%>">
+
+                                <div class="card-body">
+                                    <h5 class="card-title"><%=reserva.nombre%></h5>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Desde</th>
+                                                <th scope="col">Hasta</th>
+                                                <th scope="col">Marca</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><%=reserva.fechaIni%></td>
+                                                <td><%=reserva.fechaFin%></td>
+                                                <td><%=reserva.marca%></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <%});%>
+            </div>
+    </section>
+
+    <!--Paginación-->
+
+    <nav aria-label="Paginación" style="background-color: transparent;">
+        <ul class="pagination" id="pagination">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+            </li>
+        </ul>
+    </nav>
+
+    <script>
+        const cards = document.querySelectorAll(".container .card");
+        const cardsPerPage = 3;
+        let currentPage = 1;
+
+        function showPage(page) {
+            currentPage = page;
+
+            const start = (page - 1) * cardsPerPage;
+            const end = start + cardsPerPage;
+
+            cards.forEach((card, index) => {
+            card.style.display = index >= start && index < end ? "block" : "none";
+            });
+
+            renderPagination();
+        }
+
+        function renderPagination() {
+            const totalPages = Math.ceil(cards.length / cardsPerPage);
+            const pagination = document.getElementById("pagination");
+
+            // Limpiar contenido anterior
+            pagination.innerHTML = "";
+
+            // Botón «Anterior»
+            const prevLi = document.createElement("li");
+            prevLi.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
+            prevLi.innerHTML = `<a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>`;
+            prevLi.addEventListener("click", () => {
+            if (currentPage > 1) showPage(currentPage - 1);
+            });
+            pagination.appendChild(prevLi);
+
+            // Botones de página
+            for (let i = 1; i <= totalPages; i++) {
+            const li = document.createElement("li");
+            li.className = `page-item ${i === currentPage ? "active" : ""}`;
+            li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+            li.addEventListener("click", () => showPage(i));
+            pagination.appendChild(li);
+            }
+
+            // Botón «Siguiente»
+            const nextLi = document.createElement("li");
+            nextLi.className = `page-item ${currentPage === totalPages ? 'disabled' : ''}`;
+            nextLi.innerHTML = `<a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>`;
+            nextLi.addEventListener("click", () => {
+            if (currentPage < totalPages) showPage(currentPage + 1);
+            });
+            pagination.appendChild(nextLi);
+        }
+
+        // Mostrar la primera página al cargar
+        showPage(1);
+    </script>
+
+
+
+        <!--Modal para las imágenes de los cohces-->
+        <div class="modal" id="imgModal">
+            <span class="close">&times;</span>
+            <img src="/recurso-imagenes/vehiculos/x.png" class="modal-content" id="imgModalContent" alt="imagen_ampliada">
+        </div>
+
+        <!--Para expandir las imágenes-->
+        <script src="/js/modal-imagenes.js"></script>
+        <script src="/js/jquery.min.js"></script>
+</body>
+</html>

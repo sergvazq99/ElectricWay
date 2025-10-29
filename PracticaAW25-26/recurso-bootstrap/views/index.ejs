@@ -6,12 +6,44 @@
     <title>Mi proyecto</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <script src="/css/bootstrap.bundle.min.js"></script>
+    <link rel="icon" href="/images/logo.png" type="image/x-icon">
+    <script src="/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <%-include("header")%>
-    <%-include("nav")%>
-    <%-include("content")%>
-    <%-include("footer")%>
+    <div id="content">
+        <%-include("header")%>
+        <%-include("nav")%>
+        <%-include("content")%>
+        <%-include("footer")%>
+    </div>
+    
+    <!--Modal para el login-->
+    <div class="modal" id="myModal" tabindex="-1">
+        <div class="modal-header">
+            <h4 class="modal-title">Te damos la bienvenida</h4>
+            <button type="button" class="btn-close" id="cerrarModal" data-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+            <p>Inicia sesión o regístrate para obtener una mejor experiencia.</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary w-100 mb-2">Iniciar sesión</button>
+            <button class="btn btn-primary w-100">Registrarse</button>
+        </div>
+    </div>
+
+    <!--Modal para las imágenes de los cohces-->
+    <div class="modal" id="imgModal">
+        <span class="close">&times;</span>
+        <img src="/recurso-imagenes/vehiculos/x.png" class="modal-content" id="imgModalContent" alt="imagen_ampliada">
+    </div>
+
+    <!--Para expandir las imágenes-->
+    <script src="/js/modal-imagenes.js"></script>
+
+    <!--Modal de bienvenida-->
+    <script src="/js/modal-bienvenida.js"></script>
+
+    <script src="/js/jquery.min.js"></script>
 </body>
 </html>

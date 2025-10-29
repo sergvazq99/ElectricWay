@@ -50,25 +50,67 @@ header img{
     height: 40px;
     background-color: rgb(255, 85, 0);
     border-color:rgb(255, 85, 0);
+    border-radius: 20px;
     color:black;
 }
 #reg_button{
     height: 40px;
+    border-radius: 20px;
     background-color: rgb(5, 3, 3);
     border-color:rgb(255, 85, 0);
 }
 .btn.btn-primary.w-100.mb-2{
+    border-radius: 20px;
     background-color: rgb(255, 85, 0);
     border-color:rgb(255, 85, 0);
     color:black;
 }
 .btn.btn-primary.w-100{
+    border-radius: 20px;
     background-color: rgb(5, 3, 3);
     border-color:rgb(255, 85, 0);
 }
-.btn.btn-primary{
-    
-    border-radius: 50px;
+.btn.btn-primary-submit{
+    height: 60px;
+    width:40%;
+    border-radius: 60px;
+    font-size:larger;
+    background-color: rgb(255, 85, 0);
+    border-color: rgb(255, 85, 0);
+    color:black;
+}
+.btn.btn-primary-submit:hover{
+    transition: transform 0.2s;
+    transform: scale(1.05);
+    background-color: rgb(255, 85, 0);
+    border-color: rgb(255, 85, 0);
+    color:black;
+}
+.btn.btn-primary-submit:active{
+    background-color: rgb(232, 77, 0)!important; 
+    border-color: rgb(232, 77, 0)!important;
+    color:black!important;
+}
+.btn.btn-primary-clear{
+    height: 60px;
+    width:40%;
+    border-radius: 60px;
+    font-size:larger;
+    background-color: black;
+    border-color: rgb(255, 85, 0);
+    color:white;
+}
+.btn.btn-primary-clear:hover{
+    transition: transform 0.2s;
+    transform: scale(1.05);
+    border-color: rgb(255, 85, 0);
+    background-color: black;
+    color:white;
+}
+.btn.btn-primary-clear:active{
+    background-color: rgb(30, 30, 30)!important;
+    border-color: rgb(255, 85, 0)!important;
+    color: white !important;
 }
 nav{
     justify-content: space-between;
@@ -132,38 +174,30 @@ footer{
     border-radius: 20px;
     border-width: 2px;
     height: auto;
-    border:1px solid;
+    border:3px solid;
     width: 30%;
-    padding: 3rem;
+    padding: 1.5rem;
     border-color: rgb(255, 85, 0);
+    background-color: rgb(241, 241, 241);
 }
 .register label,.login label,.reserve label,.vehicle label,.concessionaire label{
+    font-size: large;
     color:black;
 }
 .register input,.register select,.login input,.reserve input,.vehicle input,.vehicle select,.concessionaire input{
     border-color: black;
 }
 
-.login h2,.register h2,.reserve h2,.vehicle h2,.concessionaire h2{
+.login h2,.register h3,.reserve h2,.vehicle h2,.concessionaire h2{
     text-align: center;
 }
 .login .session_button,.register .session_button,.reserve .session_button,.vehicle .session_button,.concessionaire .session_button{
     text-align: center;
     margin: auto;
 }
-.session_button button{
-    background-color: white;
-    border-color: rgb(255, 85, 0);
-    color:black;
-}
 .session_button{
     padding: 1rem;
     margin: auto;
-}
-.session_button button:hover{
-    background-color: rgb(255, 85, 0);
-    border-color: rgb(255, 85, 0);
-    color:black;
 }
 .container{
     padding: 2rem;
@@ -273,7 +307,7 @@ footer{
     border-color: rgb(255, 85, 0);
     color:black;
 }
-.page-item.active .page-link {
+#pagination .page-item.active .page-link {
   background-color: rgb(255, 85, 0);
 }
 
@@ -281,4 +315,12 @@ footer{
   filter: blur(15px);
   transition: filter 0.3s ease;
   pointer-events: none;
+}
+#vehiculos h2{
+    padding: 1rem;
+    text-align: center;
+}
+#mis_vehiculos{
+    
+    width: 35%;
 }
