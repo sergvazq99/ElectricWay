@@ -1,4 +1,4 @@
-const formulario = document.getElementById("formulario");
+const registrarFormulario = document.getElementById("register");
 
 const nombre = document.getElementById("nombre");
 const correo = document.getElementById("correo");
@@ -6,18 +6,10 @@ const contrasenia = document.getElementById("contrasenia");
 const telefono = document.getElementById("telefono");
 const concesionario = document.getElementById("concesionario");
 
-const vehicle = document.getElementById("vehiculo");
-const date1 = document.getElementById("date1");
-const date2 = document.getElementById("date2");
-
 const err_name = document.getElementById("err_name");
 const err_correo = document.getElementById("err_correo");
 const err_contrasenia = document.getElementById("err_contrasenia");
 const err_telefono = document.getElementById("err_telefono");
-
-const err_veh = document.getElementById("err_veh");
-const err_date1 = document.getElementById("err_date1");
-const err_date2 = document.getElementById("err_date2");
 
 // Validaciones individuales
 function validarNombre() {
@@ -38,18 +30,6 @@ function validarNombre() {
     nombre.classList.add("is-valid");
     return true;
   }
-}
-
-function validarNombreVehiculo(){
-  const valor=vehicle.value;
-
-  if(valor.length>20){
-    err_veh.textContent="El nombre de un vehículo no puede de tener más de 20 caracteres";
-    vehicle.classList.add("is-invalid");
-    vehicle.classList.remove("is-valid");
-    return false;
-  }
-  return true;
 }
 
 function validarCorreo() {
@@ -126,19 +106,14 @@ contrasenia.addEventListener("input", validarContrasenia);
 telefono.addEventListener("input", validarTelefono);
 //concesionario.addEventListener("change", validarConcesionario);
 
-vehicle.addEventListener("input",validarNombreVehiculo);
-
 // Validación al enviar
-formulario.addEventListener("submit", function(event) {
+registrarFormulario.addEventListener("submit", function(event) {
   let valido =
     validarNombre() &
     validarCorreo() &
     validarContrasenia() &
-    validarTelefono() ;/*&
+    validarTelefono();/*&
     validarConcesionario();*/
-
-    validarNombreVehiculo();
-
   if (!valido) {
     event.preventDefault(); // bloquea envío si hay errores
   }
