@@ -8,34 +8,41 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="icon" href="/images/logo.png" type="image/x-icon">
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    
 </head>
 <body>
     <%-include("header")%>
     <%-include("nav")%>
-    <form class="reserve" action="/reserve" method="POST">
+    <form class="reserve" id="reserve" action="/reserve" method="POST">
         <h2>Reservar</h2>
         <hr>
         <div class="mb-3">
             <label for="vehiculo" class="form-label">Vehículo</label>
-            <input type="text" class="form-control" id="vehiculo" name="vehiculo">
+            <input type="text" class="form-control" id="vehiculo" name="vehiculo" required>
             <small id="err_veh" style="color:red;"></small>
         </div>
         <div class="mb-3">
             <label for="date1" class="form-label">Fecha inicio</label>
-            <input type="date" class="form-control" id="date1" name="date1">
+            <input type="date" class="form-control" id="date1" name="date1" required>
             <small id="err_date1" style="color:red;"></small>
         </div>
         <div class="mb-3">
             <label for="date2" class="form-label">Fecha fin</label>
-            <input type="date" class="form-control" id="date2" name="date2">
+            <input type="date" class="form-control" id="date2" name="date2" required>
             <small id="err_date2" style="color:red;"></small>
         </div>    
-        <div class="session_button"><button type="submit" class="btn btn-primary">Reservar</button></div>
+        <div class="session_button">
+            <button type="submit" class="btn btn-primary-submit">Reservar</button>
+            <button type="reset" class="btn btn-primary-clear" onclick="clearVerifications()">Borrar campos</button>
+        </div>
         <!--Confirmación en modal-->
 
 
 
-        <script src="/js/formulario.js"></script>
+        
     </form>
+    <script src="/js/reservarFormulario.js"></script>
+    
 </body>
 </html>
