@@ -324,3 +324,18 @@ footer{
     
     width: 35%;
 }
+.error{
+    padding: 2rem;
+    text-align: center;
+}
+.error p{
+    font-size:large;
+    color:rgb(255, 85, 0);
+}
+.error img{
+    height: 15%;
+    width: 15%;
+    border-radius: 20px;
+    border-width: 5px;
+    border:rgb(255, 85, 0) 2px solid;
+}
