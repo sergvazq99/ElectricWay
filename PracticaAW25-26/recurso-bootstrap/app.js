@@ -1,5 +1,7 @@
 "use strict"
+
 const express=require("express");
+const createError = require('http-errors');
 const path=require("path");
 
 const app = express();
@@ -35,13 +37,14 @@ app.get("/reserve",(req,res)=>{
     res.render("reserve");
 });
 
-app.post("/reserve",(req,res)=>{
+app.post("/reserve",(req,res,next)=>{
     const {vehiculo,date1,date2}=req.body;
 
     const seleccion=vehiculos.find(v=>v.nombre.toLowerCase()===vehiculo.toLowerCase());
 
     if(!seleccion){
       console.log("Vehículo no encontrado");
+      return next(createError(404, "Error al procesar la reserva"));
     }
 
     const reserva={nombre:seleccion.nombre,fechaIni:date1,fechaFin:date2,foto:seleccion.imagen,marca:seleccion.marca};
@@ -50,14 +53,15 @@ app.post("/reserve",(req,res)=>{
     res.render("reserves",{r:reservas});
 });
 
-app.use(function(req, res, next) {
-  next(createError(404));
+app.use((req, res, next)=>{
+  next(createError(404,"Página no encontrada"));
 });
 
-app.use(function(err, req, res, next) {
+app.use((err, req, res, next)=>{
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
+  // render the error page
   res.status(err.status || 500);
   res.render('error');
 });
