@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="icon" href="/images/logo.png" type="image/x-icon">
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+</head>
+<body>
+    <form class="register" id="register">
+        <h3>Registrarse</h3>
+        <hr>
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" required>
+            <small id="err_name" style="color:red;"></small>
+        </div>
+        <div class="mb-3">
+            <label for="correo" class="form-label">Correo electrónico</label>
+            <input type="email" class="form-control" id="correo" placeholder="example@ucm.es">
+            <small id="err_correo" style="color:red;"></small>
+        </div>
+        <div class="mb-3">
+            <label for="contrasenia" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="contrasenia">
+            <small id="err_contrasenia" style="color:red;"></small>
+        </div>
+        <div class="mb-3">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input type="text" class="form-control" id="telefono">
+            <small id="err_telefono" style="color:red;"></small>
+        </div>
+        <div class="mb-3">
+            <label for="concesionario" class="form-label">Concesionario</label>
+            <select class="form-select" aria-label="Default select example" id="concesionario">
+                <option selected>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+        </div>
+        <div class="session_button">
+            <button type="submit" class="btn btn-primary-submit">Registrarse</button>
+            <button type="reset" class="btn btn-primary-clear" onclick="clearVerifications()">Borrar campos</button>
+        </div>
+    </form>
+    <script src="/js/registroFormulario.js"></script>
+    
+    
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="icon" href="/images/logo.png" type="image/x-icon">
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+</head>
+
+<body>
+    <form class="login" id="login">
+        <fieldset>
+            <h2>Inicio sesión</h2>
+            <hr>
+            <div class="mb-3">
+                <label for="correo" class="form-label" >Correo electrónico</label>
+                <input type="email" class="form-control" id="correo" placeholder="example@ucm.es">
+                <small id="err_correo" style="color:red;"></small>
+            </div>
+            <div class="mb-3">
+                <label for="contrasenia" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="contrasenia">
+                <small id="err_contrasenia" style="color:red;"></small>
+            </div>
+            <div class="session_button">
+                <button type="submit" class="btn btn-primary-submit">Iniciar sesión</button>
+                <button type="reset" class="btn btn-primary-clear" onclick="clearVerifications()">Borrar campos</button>
+            </div>
+        </fieldset>
+    </form>
+    <script src="/js/loginFormulario.js"></script>
+    
+</body>
+</html>

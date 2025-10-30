@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear concesionario</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="icon" href="/images/logo.png" type="image/x-icon">
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+</head>
+<body>
+    <form class="concessionaire" id="concessionaire">
+        <h2>Crea un concesionario</h2>
+        <hr>
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre">
+            <small id="err_name" style="color:red;"></small>
+        </div>
+        <div class="mb-3">
+            <label for="ciudad" class="form-label">Ciudad</label>
+            <input type="text" class="form-control" id="ciudad">
+            <small id="err_ciudad" style="color:red;"></small>
+        </div>
+        <div class="mb-3">
+            <label for="direccion" class="form-label">Dirección</label>
+            <input type="text" class="form-control" id="direccion">
+            <small id="err_direcc" style="color:red;"></small>
+        </div>
+        <div class="mb-3">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input type="text" class="form-control" id="telefono">
+            <small id="err_telefono" style="color:red;"></small>
+        </div>
+        <div class="session_button">
+            <button type="submit" class="btn btn-primary-submit">Crear</button>
+            <button type="reset" class="btn btn-primary-clear" onclick="clearVerifications()">Borrar campos</button>
+        </div>
+    </form>
+    <script src="/js/concesionarioFormulario.js"></script>
+</body>
+</html>
