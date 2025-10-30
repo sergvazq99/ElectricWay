@@ -24,9 +24,19 @@ const vehiculos=[{imagen:"byd_seal1.png",nombre:"Byd Seal 1",desc:"xxx",matricul
 ];
 
 const reservas=[];
+const usuarios=[];
+const concesionarios=[];
 
 app.get("/",(req,res)=>{
     res.render("index");
+});
+
+app.get("/register",(req,res)=>{
+  res.render("register");
+});
+
+app.get("/login",(req,res)=>{
+  res.render("login");
 });
 
 app.get("/vehiculos",(req,res)=>{
@@ -51,6 +61,10 @@ app.post("/reserve",(req,res,next)=>{
     reservas.push(reserva);
 
     res.render("reserves",{r:reservas});
+});
+
+app.get("/concesionaire",(req,res)=>{
+    res.render("concesionaire");
 });
 
 app.use((req, res, next)=>{
