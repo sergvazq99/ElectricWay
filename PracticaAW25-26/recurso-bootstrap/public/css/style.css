@@ -13,6 +13,7 @@ a {
 header{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     padding: 1rem;
     background-color: rgb(0, 0, 0);
@@ -58,6 +59,10 @@ header img{
     border-radius: 20px;
     background-color: rgb(5, 3, 3);
     border-color:rgb(255, 85, 0);
+}
+#reg_button:hover,#login_button:hover{
+    transition: transform 0.2s;
+    transform: scale(1.05);
 }
 .btn.btn-primary.w-100.mb-2{
     border-radius: 20px;
@@ -144,8 +149,9 @@ ul{
     margin-left: auto;
 }
 .btns{
-    display: flex;
     align-items: center;
+    gap:3%;
+    text-align: center;
 }
 .panelbuttons{
     display: flex;
