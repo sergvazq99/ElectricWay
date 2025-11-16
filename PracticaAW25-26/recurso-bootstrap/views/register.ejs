@@ -11,37 +11,42 @@
     <script src="/js/jquery.min.js"></script>
 </head>
 <body>
-    <form class="register" id="register">
+    <form class="register" id="register" action="/register" method="POST">
         <h3>Registrarse</h3>
         <hr>
         <div class="mb-3">
             <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombre" required>
+            <input type="text" class="form-control" id="nombre" name="nombre" required>
             <small id="err_name" style="color:red;"></small>
         </div>
         <div class="mb-3">
             <label for="correo" class="form-label">Correo electrónico</label>
-            <input type="email" class="form-control" id="correo" placeholder="example@ucm.es">
+            <input type="email" class="form-control" id="correo" name="correo" placeholder="example@ucm.es">
             <small id="err_correo" style="color:red;"></small>
         </div>
         <div class="mb-3">
             <label for="contrasenia" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="contrasenia">
+            <input type="password" class="form-control" id="contrasenia" name="contrasenia">
             <small id="err_contrasenia" style="color:red;"></small>
         </div>
         <div class="mb-3">
             <label for="telefono" class="form-label">Teléfono</label>
-            <input type="text" class="form-control" id="telefono">
+            <input type="text" class="form-control" id="telefono" name="telefono">
             <small id="err_telefono" style="color:red;"></small>
+        </div>
+        <div class="form-check form-switch">
+            <label for="admin" class="form-label">Administrador</label>
+            <input class="form-check-input" type="checkbox" id="admin" name="admin" value="yes">
         </div>
         <div class="mb-3">
             <label for="concesionario" class="form-label">Concesionario</label>
-            <select class="form-select" aria-label="Default select example" id="concesionario">
+            <select class="form-select" aria-label="Default select example" id="concesionario" name="concesionario">
                 <option selected>Open this select menu</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
                 <option value="3">Three</option>
             </select>
+            <small id="err_concesionario" style="color:red;"></small>
         </div>
         <div class="session_button">
             <button type="submit" class="btn btn-primary-submit">Registrarse</button>

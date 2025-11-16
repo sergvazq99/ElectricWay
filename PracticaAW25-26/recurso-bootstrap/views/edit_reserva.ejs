@@ -14,32 +14,32 @@
 <body>
     <%-include("header")%>
     <%-include("nav")%>
-    <form class="reserve" id="reserve" action="/reserve" method="POST">
+    <form class="reserve" id="reserve" action="/reservas/<%=reserva.id %>/edit" method="POST">
         <h2>Reservar</h2>
         <hr>
         <div class="mb-3">
             <label for="vehiculo" class="form-label">Vehículo</label>
-            <input type="text" class="form-control" id="vehiculo" name="vehiculo" required>
+            <input type="text" class="form-control" id="vehiculo" name="vehiculo" value="<%= reserva.nombre%>" required>
             <small id="err_veh" style="color:red;"></small>
         </div>
         <div class="mb-3">
             <label for="marca" class="form-label">Marca</label>
-            <input type="text" class="form-control" id="marca" name="marca" required>
+            <input type="text" class="form-control" id="marca" name="marca" value="<%=reserva.marca%>" required>
             <small id="err_marca" style="color:red;"></small>
         </div>
         <div class="mb-3">
             <label for="date1" class="form-label">Fecha inicio</label>
-            <input type="date" class="form-control" id="date1" name="date1" required>
+            <input type="date" class="form-control" id="date1" name="date1" value="<%= reserva.fechaIni%>" required>
             <small id="err_date1" style="color:red;"></small>
         </div>
         <div class="mb-3">
             <label for="date2" class="form-label">Fecha fin</label>
-            <input type="date" class="form-control" id="date2" name="date2" required>
+            <input type="date" class="form-control" id="date2" name="date2" value="<%= reserva.fechaFin%>" required>
             <small id="err_date2" style="color:red;"></small>
         </div>    
         <div class="session_button">
-            <button type="submit" class="btn btn-primary-submit">Reservar</button>
-            <button type="reset" class="btn btn-primary-clear" onclick="clearVerifications()">Borrar</button>
+            <button type="submit" class="btn btn-primary-submit">Guardar</button>
+            <button type="reset" class="btn btn-primary-clear" onclick="clearVerifications()">Borrar campos</button>
         </div>
         <!--Confirmación en modal-->
 

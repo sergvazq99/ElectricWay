@@ -39,7 +39,7 @@ function validarCiudad(){
         ciudad.classList.remove("is-valid");
         return false;
     }
-    else if (!/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=<>?{}[\]~]).+$/.test(valor)){
+    else if (/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_\-+=<>?{}[\]~]).+$/.test(valor)){
         err_ciudad.textContent="Una ciudad no puede contener símbolos";
         ciudad.classList.add("is-invalid");
         ciudad.classList.remove("is-valid");

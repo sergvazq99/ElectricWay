@@ -12,11 +12,14 @@
     <header>
         <img src="/images/logo.png" alt="logo">
         <h1 style="color:rgb(255, 85, 0)">ElectricWay</h1>
-        <div class="btns">
-            <a href="/login" class="btn btn-primary" id="login_button">Iniciar sesión</a>
-            <a href="/register" class="btn btn-primary" id="reg_button">Registrarse</a>
-        </div>
-
+        <%if(!usuario){%>
+            <div class="btns">
+                <a href="/login" class="btn btn-primary" id="login_button">Iniciar sesión</a>
+                <a href="/register" class="btn btn-primary" id="reg_button">Registrarse</a>
+            </div>
+        <%}else{%>
+            <a href="/login/logout" class="btn btn-primary" id="logout_button">Cerrar sesión</a>
+        <%}%>
     </header>
     <script src="/js/jquery.min.js"></script>
 </body>

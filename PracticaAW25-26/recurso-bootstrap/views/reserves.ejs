@@ -13,117 +13,132 @@
     <%-include("header")%>
     <%-include("nav")%>
     <section id="vehiculos">
-        <h2>Mis reservas</h2>
-            <div class="container" id="main-content">
+        
+            <%if(!r||r.length===0){%>
+                <div class="error">
+                    <h1>No tienes reservas</h1>
+                    <p>Comienza con tu primera reserva</p>
+                    <img src="/images/error.png">
+                </div>
+            <%}else{%>
+                <h2>Mis reservas</h2>
+                <div class="container" id="main-content">
                 <%r.forEach(reserva=>{%>
-                    <div class="row" id="mis_vehiculos">
-                        <div class="col">
-                            <div class="card">
-                                <img src="/recurso-imagenes/vehiculos/<%=reserva.foto%>"
-                                class="card-img-top clickable-img" alt="<%=reserva.nombre%>">
-
-                                <div class="card-body">
-                                    <h5 class="card-title"><%=reserva.nombre%></h5>
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Desde</th>
-                                                <th scope="col">Hasta</th>
-                                                <th scope="col">Marca</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><%=reserva.fechaIni%></td>
-                                                <td><%=reserva.fechaFin%></td>
-                                                <td><%=reserva.marca%></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                    <div class="card w-75 mb-3">
+                    <div class="card-body">
+                            <h5 class="card-title"><%=reserva.nombre%></h5>
+                            <div class="datos_conc">
+                                <p class="card-text">Empieza: <%=reserva.fechaIni%> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-flag" viewBox="0 0 16 16">
+                                <path d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12 12 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A20 20 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a20 20 0 0 0 1.349-.476l.019-.007.004-.002h.001M14 1.221c-.22.078-.48.167-.766.255-.81.252-1.872.523-2.734.523-.886 0-1.592-.286-2.203-.534l-.008-.003C7.662 1.21 7.139 1 6.5 1c-.669 0-1.606.229-2.415.478A21 21 0 0 0 3 1.845v6.433c.22-.078.48-.167.766-.255C4.576 7.77 5.638 7.5 6.5 7.5c.847 0 1.548.28 2.158.525l.028.01C9.32 8.29 9.86 8.5 10.5 8.5c.668 0 1.606-.229 2.415-.478A21 21 0 0 0 14 7.655V1.222z"/>
+                                </svg></p>
+                                <br>
+                                <p class="card-text">Acaba: <%=reserva.fechaFin%> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-alarm" viewBox="0 0 16 16">
+                                <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9z"/>
+                                <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1zm1.038 3.018a6 6 0 0 1 .924 0 6 6 0 1 1-.924 0M0 3.5c0 .753.333 1.429.86 1.887A8.04 8.04 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5M13.5 1c-.753 0-1.429.333-1.887.86a8.04 8.04 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1"/>
+                                </svg></p>
                             </div>
-                        </div>
+                            <%if(reserva.tiempo<=5){%>
+                                <p style="color:red">Te quedan <%=reserva.tiempo%> días <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">
+                                <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.15.15 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.2.2 0 0 1-.054.06.1.1 0 0 1-.066.017H1.146a.1.1 0 0 1-.066-.017.2.2 0 0 1-.054-.06.18.18 0 0 1 .002-.183L7.884 2.073a.15.15 0 0 1 .054-.057m1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767z"/>
+                                <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                                </svg></p>
+                            <%}else{%>
+                                <p>Te quedan <%=reserva.tiempo%> días</p>
+                            <%}%>
+                            
+                            <a href="/reservas/<%=reserva.id%>/delete" class="btn btn-primary" id="eliminar">Borrar <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                            <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+                            </svg></a>
+                            <a href="/reservas/<%=reserva.id%>/edit" class="btn btn-primary" id="editar">Editar <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                            </svg></a>
                     </div>
+                </div>
                 <%});%>
+                <nav aria-label="Paginación" style="background-color: transparent;">
+                    <ul class="pagination" id="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <script>
+                    const cards = document.querySelectorAll(".container .card");
+                    const cardsPerPage = 2;
+                    let currentPage = 1;
+
+                    function showPage(page) {
+                        currentPage = page;
+
+                        const start = (page - 1) * cardsPerPage;
+                        const end = start + cardsPerPage;
+
+                        cards.forEach((card, index) => {
+                        card.style.display = index >= start && index < end ? "block" : "none";
+                        });
+
+                        renderPagination();
+                    }
+
+                    function renderPagination() {
+                        const totalPages = Math.ceil(cards.length / cardsPerPage);
+                        const pagination = document.getElementById("pagination");
+
+                        // Limpiar contenido anterior
+                        pagination.innerHTML = "";
+
+                        // Botón «Anterior»
+                        const prevLi = document.createElement("li");
+                        prevLi.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
+                        prevLi.innerHTML = `<a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>`;
+                        prevLi.addEventListener("click", () => {
+                        if (currentPage > 1) showPage(currentPage - 1);
+                        });
+                        pagination.appendChild(prevLi);
+
+                        // Botones de página
+                        for (let i = 1; i <= totalPages; i++) {
+                        const li = document.createElement("li");
+                        li.className = `page-item ${i === currentPage ? "active" : ""}`;
+                        li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+                        li.addEventListener("click", () => showPage(i));
+                        pagination.appendChild(li);
+                        }
+
+                        // Botón «Siguiente»
+                        const nextLi = document.createElement("li");
+                        nextLi.className = `page-item ${currentPage === totalPages ? 'disabled' : ''}`;
+                        nextLi.innerHTML = `<a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>`;
+                        nextLi.addEventListener("click", () => {
+                        if (currentPage < totalPages) showPage(currentPage + 1);
+                        });
+                        pagination.appendChild(nextLi);
+                    }
+
+                    // Mostrar la primera página al cargar
+                    showPage(1);
+                </script>
             </div>
+
+            <%}%>
+            
     </section>
 
     <!--Paginación-->
 
-    <nav aria-label="Paginación" style="background-color: transparent;">
-        <ul class="pagination" id="pagination">
-            <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-            </a>
-            </li>
-        </ul>
-    </nav>
-
-    <script>
-        const cards = document.querySelectorAll(".container .card");
-        const cardsPerPage = 3;
-        let currentPage = 1;
-
-        function showPage(page) {
-            currentPage = page;
-
-            const start = (page - 1) * cardsPerPage;
-            const end = start + cardsPerPage;
-
-            cards.forEach((card, index) => {
-            card.style.display = index >= start && index < end ? "block" : "none";
-            });
-
-            renderPagination();
-        }
-
-        function renderPagination() {
-            const totalPages = Math.ceil(cards.length / cardsPerPage);
-            const pagination = document.getElementById("pagination");
-
-            // Limpiar contenido anterior
-            pagination.innerHTML = "";
-
-            // Botón «Anterior»
-            const prevLi = document.createElement("li");
-            prevLi.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
-            prevLi.innerHTML = `<a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>`;
-            prevLi.addEventListener("click", () => {
-            if (currentPage > 1) showPage(currentPage - 1);
-            });
-            pagination.appendChild(prevLi);
-
-            // Botones de página
-            for (let i = 1; i <= totalPages; i++) {
-            const li = document.createElement("li");
-            li.className = `page-item ${i === currentPage ? "active" : ""}`;
-            li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
-            li.addEventListener("click", () => showPage(i));
-            pagination.appendChild(li);
-            }
-
-            // Botón «Siguiente»
-            const nextLi = document.createElement("li");
-            nextLi.className = `page-item ${currentPage === totalPages ? 'disabled' : ''}`;
-            nextLi.innerHTML = `<a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>`;
-            nextLi.addEventListener("click", () => {
-            if (currentPage < totalPages) showPage(currentPage + 1);
-            });
-            pagination.appendChild(nextLi);
-        }
-
-        // Mostrar la primera página al cargar
-        showPage(1);
-    </script>
+    
 
 
 

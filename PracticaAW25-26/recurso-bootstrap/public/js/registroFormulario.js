@@ -10,6 +10,7 @@ const err_name = document.getElementById("err_name");
 const err_correo = document.getElementById("err_correo");
 const err_contrasenia = document.getElementById("err_contrasenia");
 const err_telefono = document.getElementById("err_telefono");
+const err_concesionario = document.getElementById("err_concesionario");
 
 // Validaciones individuales
 function validarNombre() {
@@ -102,26 +103,29 @@ function clearVerifications(){
     err_correo.textContent="";
     err_contrasenia.textContent="";
     err_telefono.textContent="";
+    err_concesionario="";
 }
 
-/*function validarConcesionario() {
+function validarConcesionario() {
   if (concesionario.value === "Open this select menu") {
+    err_concesionario.textContent = "Debes escoger un concesionario";
     concesionario.classList.add("is-invalid");
     concesionario.classList.remove("is-valid");
     return false;
   } else {
+    err_concesionario.textContent = "";
     concesionario.classList.remove("is-invalid");
     concesionario.classList.add("is-valid");
     return true;
   }
-}*/
+}
 
 // Validación dinámica mientras escribes / cambias
 nombre.addEventListener("input", validarNombre);
 correo.addEventListener("input", validarCorreo);
 contrasenia.addEventListener("input", validarContrasenia);
 telefono.addEventListener("input", validarTelefono);
-//concesionario.addEventListener("change", validarConcesionario);
+concesionario.addEventListener("change", validarConcesionario);
 
 // Validación al enviar
 registrarFormulario.addEventListener("submit", function(event) {
@@ -129,8 +133,8 @@ registrarFormulario.addEventListener("submit", function(event) {
     validarNombre() &
     validarCorreo() &
     validarContrasenia() &
-    validarTelefono();/*&
-    validarConcesionario();*/
+    validarTelefono()&
+    validarConcesionario();
   if (!valido) {
     event.preventDefault(); // bloquea envío si hay errores
   }

@@ -1,10 +1,12 @@
 const reservarFormulario = document.getElementById("reserve");
 
 const vehicle = document.getElementById("vehiculo");
+const marca=document.getElementById("marca");
 const date1 = document.getElementById("date1");
 const date2 = document.getElementById("date2");
 
 const err_veh = document.getElementById("err_veh");
+const err_marca = document.getElementById("err_marca");
 const err_date1 = document.getElementById("err_date1");
 const err_date2 = document.getElementById("err_date2");
 
@@ -21,6 +23,24 @@ function validarNombreVehiculo(){
       err_veh.textContent="";
       vehicle.classList.remove("is-invalid");
       vehicle.classList.add("is-valid");
+      return true;
+    }
+    
+}
+
+function validarMarcaVehiculo(){
+    const valor=marca.value;
+  
+    if(valor.length>20){
+      err_marca.textContent="La marca de un vehículo no puede de tener más de 20 caracteres";
+      marca.classList.add("is-invalid");
+      marca.classList.remove("is-valid");
+      return false;
+    }
+    else{
+      err_marca.textContent="";
+      marca.classList.remove("is-invalid");
+      marca.classList.add("is-valid");
       return true;
     }
     
@@ -99,11 +119,12 @@ function clearVerifications(){
 }
   
 vehicle.addEventListener("input",validarNombreVehiculo);
+marca.addEventListener("input", validarMarcaVehiculo);
 date1.addEventListener("input",validarFechaInicio);
 date2.addEventListener("input",validarFechaFin);
 
 reservarFormulario.addEventListener("submit",function(event){
-    let valido=validarNombreVehiculo()&&validarFechaInicio()&&validarFechaFin();
+    let valido=validarNombreVehiculo()&&validarFechaInicio()&&validarFechaFin()&&validarMarcaVehiculo();
   
     if(!valido){
       event.preventDefault(); 

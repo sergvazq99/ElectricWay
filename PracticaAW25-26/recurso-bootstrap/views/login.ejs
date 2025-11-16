@@ -12,18 +12,18 @@
 </head>
 
 <body>
-    <form class="login" id="login">
+    <form class="login" id="login" action="/login" method="POST">
         <fieldset>
             <h2>Inicio sesión</h2>
             <hr>
             <div class="mb-3">
                 <label for="correo" class="form-label" >Correo electrónico</label>
-                <input type="email" class="form-control" id="correo" placeholder="example@ucm.es">
+                <input type="email" class="form-control" id="correo" name="correo" placeholder="example@ucm.es">
                 <small id="err_correo" style="color:red;"></small>
             </div>
             <div class="mb-3">
                 <label for="contrasenia" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="contrasenia">
+                <input type="password" class="form-control" id="contrasenia" name="contrasenia">
                 <small id="err_contrasenia" style="color:red;"></small>
             </div>
             <div class="session_button">

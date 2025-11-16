@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear concesionario</title>
+    <title>Editar concesionario</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="icon" href="/images/logo.png" type="image/x-icon">
@@ -11,31 +11,31 @@
     <script src="/js/jquery.min.js"></script>
 </head>
 <body>
-    <form class="concessionaire" id="concessionaire" action="/concesionaire" method="POST">
+    <form class="concessionaire" id="concessionaire" action="/concesionarios/<%= concesionario.id %>/edit" method="POST">
         <h2>Crea un concesionario</h2>
         <hr>
         <div class="mb-3">
             <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombre" name="nombre">
+            <input type="text" class="form-control" id="nombre" name="nombre" value="<%= concesionario.nombre %>">
             <small id="err_name" style="color:red;"></small>
         </div>
         <div class="mb-3">
             <label for="ciudad" class="form-label">Ciudad</label>
-            <input type="text" class="form-control" id="ciudad" name="ciudad">
+            <input type="text" class="form-control" id="ciudad" name="ciudad" value="<%= concesionario.ciudad%>">
             <small id="err_ciudad" style="color:red;"></small>
         </div>
         <div class="mb-3">
             <label for="direccion" class="form-label">Dirección</label>
-            <input type="text" class="form-control" id="direccion" name="direccion">
+            <input type="text" class="form-control" id="direccion" name="direccion" value="<%= concesionario.direccion%>">
             <small id="err_direcc" style="color:red;"></small>
         </div>
         <div class="mb-3">
             <label for="telefono" class="form-label">Teléfono</label>
-            <input type="text" class="form-control" id="telefono" name="telefono">
+            <input type="text" class="form-control" id="telefono" name="telefono" value="<%= concesionario.telefono%>">
             <small id="err_telefono" style="color:red;"></small>
         </div>
         <div class="session_button">
-            <button type="submit" class="btn btn-primary-submit">Crear</button>
+            <button type="submit" class="btn btn-primary-submit">Guardar</button>
             <button type="reset" class="btn btn-primary-clear" onclick="clearVerifications()">Borrar campos</button>
         </div>
     </form>
