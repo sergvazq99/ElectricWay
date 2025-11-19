@@ -17,8 +17,8 @@ router.post("/",(req,res)=>{
       const validacion=seleccion.contrasenia===contrasenia;
       if(validacion){
         console.log("Usuario ha iniciado sesión");
-        req.session.usuario={nombre:seleccion.nombre,correo:seleccion.correo,contrasenia:seleccion.contrasenia,telefono:seleccion.telefono,concesionario:seleccion.concesionario,
-          admin:seleccion.admin};
+        req.session.usuario={id:seleccion.id,nombre:seleccion.nombre,correo:seleccion.correo,contrasenia:seleccion.contrasenia,telefono:seleccion.telefono,concesionario:seleccion.concesionario,
+          admin:seleccion.admin,image:seleccion.image};
         
         res.render("index",{usuario:req.session.usuario});
       }

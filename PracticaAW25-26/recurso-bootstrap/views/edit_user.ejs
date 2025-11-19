@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrarse</title>
+    <title>Editar perfil</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="icon" href="/images/logo.png" type="image/x-icon">
@@ -11,43 +11,43 @@
     <script src="/js/jquery.min.js"></script>
 </head>
 <body>
-    <form class="register" id="register" action="/register" method="POST">
+    <form class="register" id="register" action="/usuarios/<%=edit.id%>/edit" method="POST">
         <h3>Registrarse</h3>
         <hr>
         <div class="mb-3">
             <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" required>
+            <input type="text" class="form-control" id="nombre" name="nombre" value="<%=edit.nombre%>">
             <small id="err_name" style="color:red;"></small>
         </div>
         <div class="mb-3">
             <label for="correo" class="form-label">Correo electrónico</label>
-            <input type="email" class="form-control" id="correo" name="correo" placeholder="example@ucm.es">
+            <input type="email" class="form-control" id="correo" name="correo" placeholder="example@ucm.es" value="<%=edit.correo%>">
             <small id="err_correo" style="color:red;"></small>
         </div>
         <div class="mb-3">
             <label for="contrasenia" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="contrasenia" name="contrasenia">
+            <input type="password" class="form-control" id="contrasenia" name="contrasenia" value="<%=edit.contrasenia%>">
             <small id="err_contrasenia" style="color:red;"></small>
         </div>
         <div class="row g-3" style="display: flex;  align-items: center; justify-content: left;">
             <div class="col-md-4">
                 <label for="telefono" class="form-label">Teléfono</label>
-                <input type="text" class="form-control" id="telefono" name="telefono">
+                <input type="text" class="form-control" id="telefono" name="telefono" value="<%=edit.telefono%>">
                 <small id="err_telefono" style="color:red;"></small>
             </div>
             <div class="col-md-4">
                 <label for="concesionario" class="form-label">Concesionario</label>
-                <select class="form-select" aria-label="Default select example" id="concesionario" name="concesionario">
+                <select class="form-select" aria-label="Default select example" id="concesionario" name="concesionario" value="<%=edit.concesionario%>">
                     <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option value="1"><%=usuario.concesionario==1%></option>
+                    <option value="2"><%=usuario.concesionario==2%></option>
+                    <option value="3"><%=usuario.concesionario==3%></option>
                 </select>
                 <small id="err_concesionario" style="color:red;"></small>
             </div>
             <div class="col-md-4">
                 <label for="image_profile" class="form-label">Imagen:</label>
-                <input type="file" class="form-control" id="image" name="image">
+                <input type="file" class="form-control" id="image" name="image" value="<%=edit.image%>">
             </div>
         </div>
         <div class="mb-3">

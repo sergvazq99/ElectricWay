@@ -4,6 +4,7 @@ const router = express.Router();
 const {reservas}=require("../data");
 const {vehiculos}=require("../data");
 
+
 router.get("/",(req,res)=>{
     res.render("reserve",{usuario:req.session.usuario});
 });
@@ -16,6 +17,16 @@ router.post("/",(req,res)=>{
     const fecha2=new Date(date2);
 
     const nombreReserva=reservas.filter(r=>r.nombre===seleccion.nombre);
+    const conc=req.session.usuario.concesionario;
+    console.log(seleccion.concesionario);
+    console.log(conc);
+    if (seleccion.concesionario !== conc) {
+      return res.render("error", {
+        h1: "Vehículo no válido",
+        p: "No puedes reservar un vehículo de otro concesionario"
+      });
+    }
+    
 
     const conflicto=nombreReserva.some(r=>{
       const ini=new Date(r.fechaIni);
@@ -45,7 +56,9 @@ router.post("/",(req,res)=>{
     const diasRestantes=tiempoRestante/(1000 * 60 * 60 * 24);
     const estado="activa";
     
-    const reserva={id:idReserva,nombre:seleccion.nombre,fechaIni:date1,fechaFin:date2,foto:seleccion.imagen,marca:seleccion.marca,tiempo:diasRestantes,estadoReserva:estado};
+    const reserva={id:idReserva,nombre:seleccion.nombre,fechaIni:date1,fechaFin:date2,foto:seleccion.imagen,marca:seleccion.marca,tiempo:diasRestantes,estadoReserva:estado,
+      concesionario: seleccion.concesionario};
+    
     reservas.push(reserva);
 
     if(!req.session.reservas){

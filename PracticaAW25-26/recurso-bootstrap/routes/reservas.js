@@ -14,7 +14,7 @@ router.get("/:id/delete",(req,res)=>{
 
   const index=reservas.findIndex((r)=>r.id===id);
 
-  if(index!=-1){
+  if(index!==-1){
     const reserva=reservas[index];
     reserva.estadoReserva="cancelada";
     reservas.splice(index,1);

@@ -13,6 +13,7 @@ const reservasRouter=require("./routes/reservas");
 const vehiculoRouter=require("./routes/vehiculo");
 const vehiculosRouter=require("./routes/vehiculos");
 const loginRouter=require("./routes/login");
+const usuariosRouter=require("./routes/usuarios");
 const registerRouter=require("./routes/register");
 const concesionarioRouter=require("./routes/concesionario");
 const concesionariosRouter=require("./routes/concesionarios");
@@ -38,11 +39,13 @@ app.use("/",indexRouter);
 app.use("/reserve",reservaRouter);
 app.use("/reservas",reservasRouter);
 app.use("/vehicle",vehiculoRouter);
-app.use("/vehiculos",vehiculosRouter);
+app.use("/vehicles",vehiculosRouter);
 app.use("/login",loginRouter);
+app.use("/usuarios",usuariosRouter);
 app.use("/register",registerRouter);
 app.use("/concesionaire",concesionarioRouter);
 app.use("/concesionarios",concesionariosRouter);
+
 
 /*const vehiculos=[{imagen:"byd_seal1.png",nombre:"Byd Seal 1",desc:"xxx",matricula:"67891FYS",marca:"Renault",autonomia:500},
   {imagen:"byd_seal2.png",nombre:"Byd Seal 2",desc:"yyy",matricula:"123456ABC",marca:"Opel",autonomia:680},

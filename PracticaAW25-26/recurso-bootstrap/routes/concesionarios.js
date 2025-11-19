@@ -38,17 +38,24 @@ router.post("/:id/edit",(req,res)=>{
 
   const index = concesionarios.findIndex((c) => c.id === id);
 
-  if(index!=-1){
-    concesionarios[index]={id,nombre,ciudad,direccion,telefono};
-  }
+  if(index!==-1){
+    concesionarios[index].nombre=nombre;
+    concesionarios[index].ciudad=ciudad;
+    concesionarios[index].direccion=direccion;
+    concesionarios[index].telefono=telefono;
 
-  if(req.session.concesionarios){
-    const indexSession=req.session.concesionarios.findIndex((c)=>c.id===id);
-    if(indexSession!==-1){
-        req.session.concesionarios[indexSession]={id,nombre,ciudad,direccion,telefono};
+    if(req.session.concesionarios){
+      const indexSession=req.session.concesionarios.findIndex((c)=>c.id===id);
+      if(indexSession!==-1){
+        req.session.concesionarios[indexSession].nombre=nombre;
+        req.session.concesionarios[indexSession].ciudad=ciudad;
+        req.session.concesionarios[indexSession].direccion=direccion;
+        req.session.concesionarios[indexSession].telefono=telefono;
+      }
     }
   }
 
+  
   res.redirect("/concesionarios");
 });
 

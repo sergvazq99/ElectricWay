@@ -6,7 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
     <header>
@@ -18,9 +18,33 @@
                 <a href="/register" class="btn btn-primary" id="reg_button">Registrarse</a>
             </div>
         <%}else{%>
-            <a href="/login/logout" class="btn btn-primary" id="logout_button">Cerrar sesión</a>
+            <div class="btns-flex">
+                <a href="/login/logout" class="btn btn-primary" id="logout_button">Cerrar sesión</a>
+                <div class="dropdown text-center">
+                    <button class="btn btn-secondary dropdown-toggle no-arrow p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        
+                        <img src="/recurso-imagenes/personas_2/<%=usuario.image%>" class="dropdown-avatar mb-2" alt="avatar">
+                    </button>
+                    <ul class="dropdown-menu p-3 text-center">
+                        <li><a class="dropdown-item" href="#">Accesibilidad  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-universal-access-circle" viewBox="0 0 16 16">
+                        <path d="M8 4.143A1.071 1.071 0 1 0 8 2a1.071 1.071 0 0 0 0 2.143m-4.668 1.47 3.24.316v2.5l-.323 4.585A.383.383 0 0 0 7 13.14l.826-4.017c.045-.18.301-.18.346 0L9 13.139a.383.383 0 0 0 .752-.125L9.43 8.43v-2.5l3.239-.316a.38.38 0 0 0-.047-.756H3.379a.38.38 0 0 0-.047.756Z"/>
+                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8"/>
+                        </svg></a></li>
+                        <li><a class="dropdown-item" href="/usuarios/<%=usuario.id%>/edit">Editar mis datos  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                        </svg></a></li>
+                        <li><a class="dropdown-item" href="#">Cerrar sesión  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-closed" viewBox="0 0 16 16">
+                        <path d="M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3zm1 13h8V2H4z"/>
+                        <path d="M9 9a1 1 0 1 0 2 0 1 1 0 0 0-2 0"/>
+                        </svg></a></li>
+                    </ul>
+                </div>
+                
+            </div>
+            
         <%}%>
     </header>
-    <script src="/js/jquery.min.js"></script>
+    
 </body>
 </html>

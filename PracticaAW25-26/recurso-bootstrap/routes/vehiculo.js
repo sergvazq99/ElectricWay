@@ -13,9 +13,16 @@ router.get("/",(req,res)=>{
 
 router.post("/",(req,res)=>{
   const {matricula,marca,modelo,anyo_matriculacion,plazas,autonomia,color,concesionario}=req.body;
+  let idVehiculo;
 
+    if(vehiculos.length>0){
+      idVehiculo=vehiculos[vehiculos.length-1].id+1;
+    }
+    else{
+      idVehiculo=1;
+    }
   const estado="disponible";
-  const vehiculo={matricula,marca,modelo,anyo_matriculacion,plazas,autonomia,color,concesionario,estadoVehiculo:estado};
+  const vehiculo={id:idVehiculo,matricula,marca,modelo,anyo_matriculacion,plazas,autonomia,color,concesionario,estadoVehiculo:estado};
   vehiculos.push(vehiculo);
 
   if(!req.session.vehiculos){
