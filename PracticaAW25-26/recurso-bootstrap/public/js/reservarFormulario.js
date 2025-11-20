@@ -123,11 +123,32 @@ marca.addEventListener("input", validarMarcaVehiculo);
 date1.addEventListener("input",validarFechaInicio);
 date2.addEventListener("input",validarFechaFin);
 
-reservarFormulario.addEventListener("submit",function(event){
+reservarFormulario.addEventListener("submit",async function(event){
+
+    event.preventDefault();
+
+
     let valido=validarNombreVehiculo()&&validarFechaInicio()&&validarFechaFin()&&validarMarcaVehiculo();
   
     if(!valido){
-      event.preventDefault(); 
+      return; 
     }
+
+    const data={vehiculo:vehicle.value,marca:marca.value,date1:date1.value,date2:date2.value};
+    const resp=await fetch("/reserve",{ method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(data)});
+    const json=await resp.json();
+
+    if(!json.ok){
+        const campoError = document.getElementById("err_" + json.campo);
+        if(campoError){
+            campoError.textContent = json.error;
+        }
+        return;
+    }
+
+    alert("Reserva realizada correctamente ✔");
+
+    reservarFormulario.reset();
+    clearVerifications();
 });
   
