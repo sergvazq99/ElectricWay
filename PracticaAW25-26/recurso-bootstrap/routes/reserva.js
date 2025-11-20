@@ -13,6 +13,11 @@ router.post("/",(req,res)=>{
     const {vehiculo,date1,date2}=req.body;
 
     const seleccion=vehiculos.find(v=>v.nombre.toLowerCase()===vehiculo.toLowerCase());
+
+    if(!seleccion){
+      return res.json({ok:false,campo:"veh",error:"El vehículo no existe"});
+    }
+
     const fecha1=new Date(date1);
     const fecha2=new Date(date2);
 
@@ -21,10 +26,7 @@ router.post("/",(req,res)=>{
     console.log(seleccion.concesionario);
     console.log(conc);
     if (seleccion.concesionario !== conc) {
-      return res.render("error", {
-        h1: "Vehículo no válido",
-        p: "No puedes reservar un vehículo de otro concesionario"
-      });
+      return res.json({ok:false,campo:"veh",error:"Ese vehículo no pertenece a tu concesionario"});
     }
     
 
@@ -35,8 +37,7 @@ router.post("/",(req,res)=>{
     });
 
     if(conflicto){
-      console.log("No puedes reservar ese vehículo en esas fechas");
-      return res.redirect("/reservas");
+      return res.json({ok:false,campo:"date1",error:"El vehículo está reservado en esas fechas"});
     }
     else{
       seleccion.estadoVehiculo="reservado";
@@ -67,7 +68,7 @@ router.post("/",(req,res)=>{
 
     req.session.reservas.push(reserva);
 
-    res.render("reserves",{usuario:req.session.usuario,r:req.session.reservas});
+    res.json({ok:true,reserva});
 });
 
 module.exports = router;

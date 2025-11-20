@@ -8,7 +8,7 @@ router.get("/",(req,res)=>{
 });
 
 router.get("/",(req,res)=>{
-  res.render("vehiculos",{v:vehiculos,usuario:req.session.usuario});
+  res.render("vehicles",{v:vehiculos,usuario:req.session.usuario});
 });
 
 router.post("/",(req,res)=>{
@@ -30,11 +30,11 @@ router.post("/",(req,res)=>{
   }
 
   req.session.vehiculos.push(vehiculo);
-  res.render("vehiculos",{v:req.session.vehiculos,usuario:req.session.usuario});
+  res.render("vehicles",{v:req.session.vehiculos,usuario:req.session.usuario});
 });
 
 router.get("/vehiculos",(req,res)=>{
-  res.render("vehiculos",{v:req.session.vehiculos,usuario:req.session.usuario});
+  res.render("vehicles",{v:req.session.vehiculos,usuario:req.session.usuario});
 });
 
 module.exports = router;

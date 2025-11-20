@@ -26,6 +26,7 @@ app.use(session({
 }));
 
 const bodyParser = require("body-parser");
+app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 app.set('views', [
@@ -39,7 +40,7 @@ app.use("/",indexRouter);
 app.use("/reserve",reservaRouter);
 app.use("/reservas",reservasRouter);
 app.use("/vehicle",vehiculoRouter);
-app.use("/vehicles",vehiculosRouter);
+app.use("/vehiculos",vehiculosRouter);
 app.use("/login",loginRouter);
 app.use("/usuarios",usuariosRouter);
 app.use("/register",registerRouter);
