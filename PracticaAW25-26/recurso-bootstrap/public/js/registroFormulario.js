@@ -130,10 +130,10 @@ concesionario.addEventListener("change", validarConcesionario);
 // Validación al enviar
 registrarFormulario.addEventListener("submit", function(event) {
   let valido =
-    validarNombre() &
-    validarCorreo() &
-    validarContrasenia() &
-    validarTelefono()&
+    validarNombre() &&
+    validarCorreo() &&
+    validarContrasenia() &&
+    validarTelefono()&&
     validarConcesionario();
   if (!valido) {
     event.preventDefault(); // bloquea envío si hay errores
