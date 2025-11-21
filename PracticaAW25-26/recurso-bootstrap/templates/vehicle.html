@@ -16,46 +16,59 @@
         <hr>
         <div class="mb-3">
             <label for="matricula" class="form-label">Matrícula</label>
-            <input type="text" class="form-control" id="matricula">
+            <input type="text" class="form-control" id="matricula" name="matricula">
+            <small id="err_matr" style="color:red;"></small>
         </div>
         <div class="mb-3">
             <label for="marca" class="form-label">Marca</label>
-            <input type="text" class="form-control" id="marca">
+            <input type="text" class="form-control" id="marca" name="marca">
+            <small id="err_marca" style="color:red;"></small>
         </div>
         <div class="mb-3">
             <label for="modelo" class="form-label">Modelo</label>
-            <input type="text" class="form-control" id="modelo">
+            <input type="text" class="form-control" id="modelo" name="modelo">
+            <small id="err_modelo" style="color:red;"></small>
         </div>
-        <div class="row g-3 " style="display: flex; align-items: center;">
+        <div class="row g-3 " style="display: flex; justify-content: space-between;">
             <div class="col-md-4">
                 <label for="matriculacion" class="form-label">Año matriculación</label>
-                <input type="text" class="form-control" id="matriculacion">
+                <input type="text" class="form-control" id="matriculacion" name="anyo_matriculacion">
+                <small id="err_anio_matr" style="color:red;"></small>
             </div>
             <div class="col-md-3">
                 <label for="plazas" class="form-label">Número plazas</label>
-                <input type="number" class="form-control" id="plazas">
+                <input type="number" class="form-control" id="plazas" name="plazas">
+                <small id="err_plazas" style="color:red;"></small>
             </div>
             <div class="col-md-3">
                 <label for="autonomia" class="form-label">Autonomía (kms.)</label>
-                <input type="text" class="form-control" id="autonomia">
+                <input type="text" class="form-control" id="autonomia" name="autonomia">
+                <small id="err_autonomia" style="color:red;"></small>
             </div>
         </div>
         
         <div class="mb-3">
             <label for="color" class="form-label">Color</label>
-            <input type="text" class="form-control" id="color">
+            <input type="text" class="form-control" id="color" name="color">
+            <small id="err_color" style="color:red;"></small>
         </div>
         <!--Imagen-->
         <div class="mb-3">
             <label for="concesionario" class="form-label">Concesionario</label>
-            <select class="form-select" aria-label="Default select example" id="concesionario">
+            <select class="form-select" aria-label="Default select example" id="concesionario" name="concesionario">
                 <option selected>Open this select menu</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
                 <option value="3">Three</option>
             </select>
+            <small id="err_concesionario" style="color:red;"></small>
         </div>
-        <div class="session_button"><button type="submit" class="btn btn-primary">Crear</button></div>
+        <div class="session_button">
+            <button type="submit" class="btn btn-primary-submit">Crear</button>
+            <button type="reset" class="btn btn-primary-clear" onclick="clearVerifications()">Borrar</button>
+        </div>
     </form>
+
+    <script src="../public/js/vehiculoFormulario.js"></script>
 </body>
 </html>
