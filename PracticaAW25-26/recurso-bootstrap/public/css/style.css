@@ -212,7 +212,19 @@ footer{
     margin: auto;
     margin-top: auto;
 }
-.login,.register,.reserve,.vehicle,.concessionaire{
+.vehicle{
+    margin: auto;
+    margin-top: 2%;
+    border-radius: 20px;
+    border-width: 2px;
+    height: auto;
+    border:3px solid;
+    width: 40%;
+    padding: 1.5rem;
+    border-color: rgb(255, 85, 0);
+    background-color: rgb(241, 241, 241);
+}
+.login,.register,.reserve,.concessionaire{
     margin: auto;
     margin-top: 2%;
     border-radius: 20px;
@@ -386,4 +398,10 @@ footer{
 .form-check.form-switch input{
     border: rgb(255, 85, 0) 2px solid;
     
+}
+body.register-page{
+    background-image: url("../images/fondo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
